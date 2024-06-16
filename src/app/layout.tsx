@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import NextAuthSessionProvider from "@/providers/sessionProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,8 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex min-h-screen flex-col items-center justify-center p-24">
-        {children}
+      <body className="min-h-screen">
+        <NextAuthSessionProvider>
+          <div className="flex flex-col items-center justify-center p-24">
+            {children}
+          </div>
+        </NextAuthSessionProvider>
       </body>
     </html>
   );
