@@ -7,7 +7,13 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    extend: {
+      spacing: {
+        "120": "30rem",
+      },
+    },
+  },
   plugins: [daisyui],
   daisyui: {
     themes: ["night"],
