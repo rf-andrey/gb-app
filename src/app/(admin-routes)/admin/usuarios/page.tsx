@@ -4,6 +4,7 @@ import React from "react";
 import { nextAuthOptions } from "../../../api/auth/[...nextauth]/route";
 import { User } from "@/types/api/users";
 import { Table } from "@/components/Table";
+import { getUsers } from "@/api/users";
 
 export default async function Users() {
   const session = await getServerSession(nextAuthOptions);
@@ -11,9 +12,7 @@ export default async function Users() {
   const config = {
     headers: { Authorization: `Bearer ${session?.user.accessToken}` },
   };
-  const response = await axios
-    .get<User[]>("http://localhost:3333/api/users/", config)
-    .catch((err) => console.error(err));
+  const response = await getUsers(config);
 
   const headers = [
     "Nome",

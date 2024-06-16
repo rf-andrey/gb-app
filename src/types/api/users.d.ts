@@ -1,4 +1,6 @@
-export interface User {
+import { Address } from "./addresses";
+
+export interface UserCore {
   email: string;
   name: string;
   id: number;
@@ -6,10 +8,8 @@ export interface User {
   telephone: string;
   birthDate: string;
   username: string;
-  address: [
-    {
-      city: string;
-      uf: string;
-    }
-  ];
+}
+
+export interface User extends UserCore {
+  address: Address[];
 }
