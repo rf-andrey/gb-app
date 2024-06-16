@@ -1,8 +1,7 @@
-import axios from "axios";
-import { getServerSession } from "next-auth";
 import React from "react";
+import { getServerSession } from "next-auth";
+
 import { nextAuthOptions } from "../../../api/auth/[...nextauth]/route";
-import { User } from "@/types/api/users";
 import { Table } from "@/components/Table";
 import { getUsers } from "@/api/users";
 
@@ -23,5 +22,5 @@ export default async function Users() {
     "Data de nascimento",
   ];
 
-  return <Table headers={headers} data={response?.data} />;
+  return <Table headers={headers} data={response?.data} isUserVariant />;
 }

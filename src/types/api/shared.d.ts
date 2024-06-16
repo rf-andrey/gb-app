@@ -3,3 +3,5 @@ export interface Config {
     Authorization: string;
   };
 }
+
+export type DataType = User | Category;

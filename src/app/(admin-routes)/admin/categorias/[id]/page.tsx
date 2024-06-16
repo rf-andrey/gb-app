@@ -2,10 +2,14 @@ import React from "react";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 
-import { deleteUser, getUserById, updateUser } from "@/api/users";
 import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
-import { UserForm } from "@/components/Form";
+import { CategoryForm } from "@/components/Form";
 import { FormCard } from "@/components/FormCard";
+import {
+  deleteCategory,
+  getCategoryById,
+  updateCategory,
+} from "@/api/categories";
 
 interface Props {
   params: {
@@ -13,32 +17,32 @@ interface Props {
   };
 }
 
-export default async function EditUser({ params: { id } }: Props) {
+export default async function EditCategory({ params: { id } }: Props) {
   const session = await getServerSession(nextAuthOptions);
 
   const config = {
     headers: { Authorization: `Bearer ${session?.user.accessToken}` },
   };
 
-  const response = await getUserById(id, config);
+  const response = await getCategoryById(id, config);
 
   const handleSubmit = async (formData: FormData) => {
     "use server";
     const rawFormData = Object.fromEntries(formData);
 
-    await updateUser(id, rawFormData, config);
+    await updateCategory(id, rawFormData, config);
   };
 
   const handleDelete = async () => {
     "use server";
-    await deleteUser(id, config, () => redirect("/admin/usuarios"));
+    await deleteCategory(id, config, () => redirect("/admin/categorias"));
   };
 
   return (
     <div>
       <FormCard>
-        <h2>Editar usuário</h2>
-        <UserForm
+        <h2>Editar categoria</h2>
+        <CategoryForm
           handleSubmit={handleSubmit}
           handleDelete={handleDelete}
           data={response?.data}

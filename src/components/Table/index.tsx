@@ -1,14 +1,15 @@
 import React from "react";
 
 import { Row } from "./Row";
-import { User } from "@/types/api/users";
+import { DataType } from "@/types/api/shared";
 
 interface Props {
   headers: string[];
-  data: User[] | undefined;
+  isUserVariant?: boolean;
+  data: DataType[] | undefined;
 }
 
-export const Table = ({ headers, data }: Props) => {
+export const Table = ({ headers, data, isUserVariant }: Props) => {
   return (
     <div className="overflow-x-auto bg-base-300 h-120">
       <table className="table table-zebra table-pin-rows table-lg">
@@ -22,8 +23,9 @@ export const Table = ({ headers, data }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {data?.map((row: User) => <Row key={row.id} row={row} />) ??
-            "Nenhum dado."}
+          {data?.map((row: DataType) => (
+            <Row key={row.id} row={row} isUserVariant={isUserVariant} />
+          )) ?? "Nenhum dado."}
         </tbody>
       </table>
     </div>
