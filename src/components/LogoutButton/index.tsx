@@ -3,6 +3,7 @@
 import React from "react";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { Logout } from "../Icons";
 
 export const LogoutButton = () => {
   const router = useRouter();
@@ -15,7 +16,8 @@ export const LogoutButton = () => {
     router.replace("/");
   }
   return (
-    <button className="btn btn-neutral" onClick={logout}>
+    <button className="btn btn-outline" onClick={logout}>
+      <Logout />
       Sair
     </button>
   );
