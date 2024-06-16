@@ -22,6 +22,20 @@ export const getUserById = async (id: string, config: Config) => {
   }
 };
 
+export const createUser = async (formData: {
+  [k: string]: FormDataEntryValue;
+}) => {
+  try {
+    const response = await axios.post(
+      "http://localhost:3333/api/users/",
+      formData
+    );
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 export const updateUser = async (
   id: string,
   formData: { [k: string]: FormDataEntryValue },

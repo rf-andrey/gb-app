@@ -3,6 +3,7 @@
 import React from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { createUser } from "@/api/users";
 
 interface Props {
   setIsSignUp: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,21 +11,14 @@ interface Props {
 
 export const SignUpForm = ({ setIsSignUp }: Props) => {
   const handleSubmit = async (formData: FormData) => {
-    toast.loading("Cadastrando...");
     const rawFormData = Object.fromEntries(formData);
 
-    try {
-      await axios.post("http://localhost:3333/api/users/", rawFormData);
-
-      toast.dismiss();
-      toast.success("Usuário cadastrado!");
-
-      setIsSignUp(false);
-    } catch (err) {
-      toast.dismiss();
-      toast.error("Erro no cadastro.");
-      console.error(err);
+    const response = await createUser(rawFormData);
+    if (response?.status !== 201) {
+      console.log(response?.statusText);
+      return;
     }
+    setIsSignUp(false);
   };
 
   return (
