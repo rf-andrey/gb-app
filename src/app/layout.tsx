@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import NextAuthSessionProvider from "@/providers/sessionProvider";
+import { NavBar } from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen">
         <NextAuthSessionProvider>
+          <NavBar />
           <div className="flex flex-col items-center justify-center p-24">
             {children}
           </div>
