@@ -1,10 +1,14 @@
 import React from "react";
-import { AuthCard } from "@/components/AuthCard";
+import { Auth } from "@/components/Auth";
+import { FormCard } from "@/components/FormCard";
 
 export default function Home() {
   return (
     <main className="">
-      <AuthCard />
+      <FormCard>
+        <h2 className="card-title">Olá!</h2>
+        <Auth />
+      </FormCard>
     </main>
   );
 }

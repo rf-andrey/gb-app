@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { LoginForm } from "./LoginForm";
 import { SignUpForm } from "./SignUpForm";
 
-export const AuthCard = () => {
+export const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
 
   const loginLayout = () => (
@@ -33,12 +33,5 @@ export const AuthCard = () => {
     </>
   );
 
-  return (
-    <div className="card w-96 bg-base-100 shadow-xl">
-      <div className="card-body items-center text-center gap-4">
-        <h2 className="card-title">Olá!</h2>
-        {isSignUp ? signUpLayout() : loginLayout()}
-      </div>
-    </div>
-  );
+  return isSignUp ? signUpLayout() : loginLayout();
 };
