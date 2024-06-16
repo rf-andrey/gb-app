@@ -23,7 +23,7 @@ export const AuthCard = () => {
   const signUpLayout = () => (
     <>
       <p>Por favor, informe os seguintes dados:</p>
-      <SignUpForm />
+      <SignUpForm setIsSignUp={setIsSignUp} />
       <p>
         Já possui cadastro?{" "}
         <button onClick={() => setIsSignUp(false)} className="underline">

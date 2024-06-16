@@ -1,19 +1,28 @@
 "use client";
 
-import axios from "axios";
 import React from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
-export const SignUpForm = () => {
+interface Props {
+  setIsSignUp: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const SignUpForm = ({ setIsSignUp }: Props) => {
   const handleSubmit = async (formData: FormData) => {
+    toast.loading("Cadastrando...");
     const rawFormData = Object.fromEntries(formData);
 
     try {
-      const user = await axios.post(
-        "http://localhost:3333/api/users/",
-        rawFormData
-      );
-      console.log(user);
+      await axios.post("http://localhost:3333/api/users/", rawFormData);
+
+      toast.dismiss();
+      toast.success("Usuário cadastrado!");
+
+      setIsSignUp(false);
     } catch (err) {
+      toast.dismiss();
+      toast.error("Erro no cadastro.");
       console.error(err);
     }
   };
