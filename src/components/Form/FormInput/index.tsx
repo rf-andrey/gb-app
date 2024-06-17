@@ -3,6 +3,7 @@ import React from "react";
 interface Props {
   type?: string;
   name: string;
+  label?: string;
   placeholder?: string;
   disabled?: boolean;
   value?: any;
@@ -13,6 +14,7 @@ export const FormInput = ({
   type,
   name,
   onChange,
+  label,
   placeholder,
   disabled,
   value,
@@ -28,6 +30,11 @@ export const FormInput = ({
         value={value}
         onChange={onChange}
       />
+      {label && (
+        <div className="label">
+          <span className="label-text">{label}</span>
+        </div>
+      )}
     </label>
   );
 };
