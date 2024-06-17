@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GB App
 
-## Getting Started
+Esta é uma aplicação React feita para simular um dashboard e uma loja, consumindo a GB API.
 
-First, run the development server:
+## Comandos
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Instalação
+
+```
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Execução
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+A aplicação estará disponível em:
 
-## Learn More
+```
+http://localhost:3000/
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Detalhes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Esta aplicação utiliza o app router do NextJS, fazendo uso de server components e funcionalidades voltadas para SSR.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Páginas
 
-## Deploy on Vercel
+- `/`: Ponto de entrada, com redirecionamento para o dashboard, para a loja, e navbar com login;
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `/login`: Tela de login e cadastro;
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `/admin/usuarios`: Dashboard com operações na tabela de usuários;
+
+- `/admin/categorias`: Dashboard com operações na tabela de categorias;
+
+- `/admin/produtos`: Dashboard com operações na tabela de produtos;
+
+- `/admin/pedidos`: Dashboard com visualização da tabela de pedidos (pedidos são criados na loja);
+
+- `/loja`: Página inicial da loja, com listagem de categorias;
+
+- `/loja/{id}`: Página da categoria, com listagem de produtos;
+
+- `/loja/{id}/{productId}`: Página de produto, com detalhes do produto e operação de compra;
+
+### Stack
+
+- React como biblioteca principal;
+- NextJS como framework;
+- Next-Auth para autenticação;
+- Typescript;
+- Tailwind CSS como framework de CSS;
+- DaisyUI como biblioteca de componentes para Tailwind CSS;
+
+### TODOS
+
+- [ ] Admin: Listagem de endereços do usuário
+- [ ] Admin: Listagem de pedidos do usuário
+- [ ] Admin: Lógica de exclusão de usuário ativo
+- [ ] Loja: Página de usuário
+- [ ] Loja: Listagem de endereços do usuário
+- [ ] Loja: Listagem de pedidos do usuário
+- [ ] Loja: Confirmação/cancelamento do pedido
+- [ ] Geral: Validar inputs nos forms
+- [ ] Geral: Feedback visual das requisições
+- [ ] Geral: Melhorias de estilos
