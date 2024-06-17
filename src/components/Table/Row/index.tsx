@@ -9,9 +9,10 @@ import { DataType } from "@/types/api/shared";
 interface Props {
   row: DataType;
   isUserVariant?: boolean;
+  blockEdit?: boolean;
 }
 
-export const Row = ({ row, isUserVariant }: Props) => {
+export const Row = ({ row, isUserVariant, blockEdit }: Props) => {
   const pathname = usePathname();
 
   return (
@@ -39,14 +40,16 @@ export const Row = ({ row, isUserVariant }: Props) => {
       ) : (
         Object.keys(row).map((key) => <td key={key}>{row[key]}</td>)
       )}
-      <th>
-        <Link
-          className="btn btn-ghost btn-xs"
-          href={`../${pathname}/${row.id}`}
-        >
-          editar
-        </Link>
-      </th>
+      {!blockEdit && (
+        <th>
+          <Link
+            className="btn btn-ghost btn-xs"
+            href={`../${pathname}/${row.id}`}
+          >
+            editar
+          </Link>
+        </th>
+      )}
     </tr>
   );
 };

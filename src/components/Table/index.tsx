@@ -7,9 +7,10 @@ interface Props {
   headers: string[];
   isUserVariant?: boolean;
   data: DataType[] | undefined;
+  blockEdit?: boolean;
 }
 
-export const Table = ({ headers, data, isUserVariant }: Props) => {
+export const Table = ({ headers, data, isUserVariant, blockEdit }: Props) => {
   return (
     <div className="overflow-x-auto bg-base-300 h-120">
       <table className="table table-zebra table-pin-rows table-lg">
@@ -19,12 +20,17 @@ export const Table = ({ headers, data, isUserVariant }: Props) => {
             {headers.map((header) => (
               <th key={header}>{header}</th>
             ))}
-            <th></th>
+            {!blockEdit && <th></th>}
           </tr>
         </thead>
         <tbody>
           {data?.map((row: DataType) => (
-            <Row key={row.id} row={row} isUserVariant={isUserVariant} />
+            <Row
+              key={row.id}
+              row={row}
+              isUserVariant={isUserVariant}
+              blockEdit={blockEdit}
+            />
           )) ?? "Nenhum dado."}
         </tbody>
       </table>
