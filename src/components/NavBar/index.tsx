@@ -1,11 +1,12 @@
-import { getServerSession } from "next-auth";
 import React from "react";
 
-import { nextAuthOptions } from "../../app/api/auth/[...nextauth]/route";
 import { LogoutButton } from "../LogoutButton";
+import { getCurrentSession } from "@/helpers/getSession";
+import Link from "next/link";
+import { Login } from "../Icons";
 
 export const NavBar = async () => {
-  const session = await getServerSession(nextAuthOptions);
+  const session = await getCurrentSession();
 
   return (
     <div className="navbar bg-base-100 p-4">
@@ -40,7 +41,14 @@ export const NavBar = async () => {
             </details>
           </li>
           <li>
-            <LogoutButton />
+            {session ? (
+              <LogoutButton />
+            ) : (
+              <Link className="btn btn-primary" href="/login">
+                <Login />
+                Entrar
+              </Link>
+            )}
           </li>
         </ul>
       </div>

@@ -3,16 +3,18 @@
 import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 
-export async function getCurrentUser() {
+export async function getCurrentSession() {
   const session = await getServerSession(nextAuthOptions);
   if (session) {
-    return session?.user;
+    return session;
   }
   return;
 }
 
 export async function getConfig() {
-  const accessToken = await getCurrentUser().then((res) => res?.accessToken);
+  const accessToken = await getCurrentSession().then(
+    (res) => res?.user?.accessToken
+  );
 
   return {
     headers: { Authorization: `Bearer ${accessToken}` },

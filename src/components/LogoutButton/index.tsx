@@ -13,7 +13,7 @@ export const LogoutButton = () => {
       redirect: false,
     });
 
-    router.replace("/");
+    router.replace("/login");
   }
   return (
     <button className="btn btn-outline" onClick={logout}>

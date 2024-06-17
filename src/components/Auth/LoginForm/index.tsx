@@ -27,7 +27,7 @@ export const LoginForm = () => {
       return;
     }
 
-    router.replace("/admin");
+    router.replace("/");
   };
 
   return (
