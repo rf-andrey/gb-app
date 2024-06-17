@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { Category } from "@/types/api/categories";
+import { Category, CategoryDisplay } from "@/types/api/categories";
 import { Config } from "@/types/api/shared";
 
 export const getCategories = async (config: Config) => {
@@ -13,7 +13,7 @@ export const getCategories = async (config: Config) => {
 
 export const getCategoryById = async (id: string, config: Config) => {
   try {
-    const response = await axios.get<Category>(
+    const response = await axios.get<CategoryDisplay>(
       `http://localhost:3333/api/categories/${id}`,
       config
     );
