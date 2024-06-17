@@ -4,7 +4,7 @@ import React, { SyntheticEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-import { Mail, Key } from "@/components/Icons";
+import { Key, User } from "@/components/Icons";
 
 export const LoginForm = () => {
   const [username, setUsername] = useState<string>("");
@@ -33,7 +33,7 @@ export const LoginForm = () => {
   return (
     <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
       <label className="input input-bordered flex items-center gap-2">
-        <Mail />
+        <User />
         <input
           type="text"
           name="user"
