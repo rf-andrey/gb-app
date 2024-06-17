@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import NextAuthSessionProvider from "@/providers/sessionProvider";
 import { NavBar } from "@/components/NavBar";
@@ -20,11 +18,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen">
         <NextAuthSessionProvider>
-          <ToastContainer
-            hideProgressBar
-            closeButton={false}
-            autoClose={5000}
-          />
           <NavBar />
           <div className="flex flex-col items-center justify-center p-24">
             {children}

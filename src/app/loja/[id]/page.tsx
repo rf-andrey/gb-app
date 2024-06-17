@@ -15,8 +15,6 @@ export default async function CategoryDetails({ params: { id } }: Props) {
   const response = await getCategoryById(id, config);
   const category = response?.data;
 
-  console.log(category);
-
   return (
     <main className="flex flex-col justify-center gap-6 items-center">
       <h2>{category?.name}</h2>
