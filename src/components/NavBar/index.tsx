@@ -11,31 +11,30 @@ export const NavBar = async () => {
   return (
     <div className="navbar bg-base-100 p-4">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link href="/" className="btn btn-ghost text-xl">
+          GB App
+        </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 items-center gap-6">
           <li>
-            <a>Loja</a>
+            <Link href="/loja">Loja</Link>
           </li>
           <li>
             <details>
-              <summary>Admin</summary>
-              <ul className="p-2 bg-base-100 rounded-t-none">
+              <summary>Dashboard</summary>
+              <ul className="p-2 bg-base-100 rounded-t-none z-10">
                 <li>
-                  <a>Usuários</a>
+                  <Link href="/admin/usuarios">Usuários</Link>
                 </li>
                 <li>
-                  <a>Categorias</a>
+                  <Link href="/admin/categorias">Categorias</Link>
                 </li>
                 <li>
-                  <a>Produtos</a>
+                  <Link href="/admin/produtos">Produtos</Link>
                 </li>
                 <li>
-                  <a>Pedidos</a>
-                </li>
-                <li>
-                  <a>Endereços</a>
+                  <Link href="/admin/pedidos">Pedidos</Link>
                 </li>
               </ul>
             </details>
