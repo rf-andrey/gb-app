@@ -63,6 +63,7 @@ Esta aplicação utiliza o app router do NextJS, fazendo uso de server component
 - [ ] Loja: Página de usuário
 - [ ] Loja: Listagem de endereços do usuário
 - [ ] Loja: Listagem de pedidos do usuário
+- [ ] Loja: Implementação de lógica de produtos do pedido
 - [ ] Loja: Confirmação/cancelamento do pedido
 - [ ] Geral: Validar inputs nos forms
 - [ ] Geral: Feedback visual das requisições
