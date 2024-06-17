@@ -1,8 +1,6 @@
 import React from "react";
 import { redirect } from "next/navigation";
-import { getServerSession } from "next-auth";
 
-import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
 import { CategoryForm } from "@/components/Form";
 import { FormCard } from "@/components/FormCard";
 import {
@@ -10,6 +8,7 @@ import {
   getCategoryById,
   updateCategory,
 } from "@/api/categories";
+import { getConfig } from "@/helpers/getSession";
 
 interface Props {
   params: {
@@ -18,11 +17,7 @@ interface Props {
 }
 
 export default async function EditCategory({ params: { id } }: Props) {
-  const session = await getServerSession(nextAuthOptions);
-
-  const config = {
-    headers: { Authorization: `Bearer ${session?.user.accessToken}` },
-  };
+  const config = await getConfig();
 
   const response = await getCategoryById(id, config);
 

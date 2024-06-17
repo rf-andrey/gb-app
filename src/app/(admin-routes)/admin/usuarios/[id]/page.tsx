@@ -1,11 +1,10 @@
 import React from "react";
 import { redirect } from "next/navigation";
-import { getServerSession } from "next-auth";
 
 import { deleteUser, getUserById, updateUser } from "@/api/users";
-import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
 import { UserForm } from "@/components/Form";
 import { FormCard } from "@/components/FormCard";
+import { getConfig } from "@/helpers/getSession";
 
 interface Props {
   params: {
@@ -14,11 +13,7 @@ interface Props {
 }
 
 export default async function EditUser({ params: { id } }: Props) {
-  const session = await getServerSession(nextAuthOptions);
-
-  const config = {
-    headers: { Authorization: `Bearer ${session?.user.accessToken}` },
-  };
+  const config = await getConfig();
 
   const response = await getUserById(id, config);
 

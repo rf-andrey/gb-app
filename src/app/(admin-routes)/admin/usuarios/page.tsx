@@ -1,16 +1,11 @@
 import React from "react";
-import { getServerSession } from "next-auth";
 
-import { nextAuthOptions } from "../../../api/auth/[...nextauth]/route";
 import { Table } from "@/components/Table";
 import { getUsers } from "@/api/users";
+import { getConfig } from "@/helpers/getSession";
 
 export default async function Users() {
-  const session = await getServerSession(nextAuthOptions);
-
-  const config = {
-    headers: { Authorization: `Bearer ${session?.user.accessToken}` },
-  };
+  const config = await getConfig();
   const response = await getUsers(config);
 
   const headers = [
