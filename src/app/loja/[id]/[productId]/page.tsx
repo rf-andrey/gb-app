@@ -1,6 +1,6 @@
 import { createOrder } from "@/api/orders";
 import { getProductById, updateProduct } from "@/api/products";
-import { PrimaryButton } from "@/components/Button";
+import { PrimaryButton } from "@/components/atoms/Button";
 import { getConfig, getCurrentSession } from "@/helpers/getSession";
 import { redirect } from "next/navigation";
 import React from "react";

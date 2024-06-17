@@ -3,7 +3,7 @@ import React from "react";
 import { Table } from "@/components/Table";
 import { getOrders } from "@/api/orders";
 import { getConfig } from "@/helpers/getSession";
-import { Checkbox } from "@/components/Checkbox";
+import { Checkbox } from "@/components/atoms/Checkbox";
 
 export default async function Users() {
   const config = await getConfig();

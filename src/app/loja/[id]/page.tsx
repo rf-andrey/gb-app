@@ -1,6 +1,6 @@
 import { getCategories, getCategoryById } from "@/api/categories";
 import { StoreCard } from "@/components/StoreCard";
-import { TextCard } from "@/components/TextCard";
+import { TextCard } from "@/components/atoms/TextCard";
 import { getConfig } from "@/helpers/getSession";
 import React from "react";
 

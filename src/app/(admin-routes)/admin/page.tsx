@@ -2,7 +2,7 @@ import { getServerSession } from "next-auth";
 import React from "react";
 
 import { nextAuthOptions } from "../../api/auth/[...nextauth]/route";
-import { LogoutButton } from "@/components/LogoutButton";
+import { LogoutButton } from "@/components/atoms/LogoutButton";
 
 export default async function Admin() {
   const session = await getServerSession(nextAuthOptions);

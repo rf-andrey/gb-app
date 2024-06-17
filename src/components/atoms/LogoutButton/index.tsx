@@ -3,7 +3,7 @@
 import React from "react";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Logout } from "../Icons";
+import { Logout } from "../../Icons";
 
 export const LogoutButton = () => {
   const router = useRouter();

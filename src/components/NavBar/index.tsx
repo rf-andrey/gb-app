@@ -1,6 +1,6 @@
 import React from "react";
 
-import { LogoutButton } from "../LogoutButton";
+import { LogoutButton } from "../atoms/LogoutButton";
 import { getCurrentSession } from "@/helpers/getSession";
 import Link from "next/link";
 import { Login } from "../Icons";
