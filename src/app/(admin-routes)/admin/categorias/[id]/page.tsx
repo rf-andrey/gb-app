@@ -26,11 +26,15 @@ export default async function EditCategory({ params: { id } }: Props) {
     const rawFormData = Object.fromEntries(formData);
 
     await updateCategory(id, rawFormData, config);
+
+    redirect("/admin/categorias");
   };
 
   const handleDelete = async () => {
     "use server";
-    await deleteCategory(id, config, () => redirect("/admin/categorias"));
+    await deleteCategory(id, config);
+
+    redirect("/admin/categorias");
   };
 
   return (
@@ -41,6 +45,7 @@ export default async function EditCategory({ params: { id } }: Props) {
           handleSubmit={handleSubmit}
           handleDelete={handleDelete}
           data={response?.data}
+          isUpdate
         />
       </FormCard>
     </div>

@@ -36,7 +36,7 @@ export default async function ProductPage({ params: { productId } }: Props) {
         totalAmount: product.price,
         status: false,
       };
-      const orderResponse = await createOrder(orderPayload, config);
+      await createOrder(orderPayload, config);
 
       redirect("/loja/usuario");
     }
@@ -44,18 +44,17 @@ export default async function ProductPage({ params: { productId } }: Props) {
 
   return (
     <div className="w-full flex flex-col gap-12">
-      Ois
-      <div className="flex w-full justify-between">
-        <img src={product?.image} alt={product?.name} />
-        <div className="flex flex-col gap-2">
+      <div className="flex w-full justify-between gap-8">
+        <img src={product?.image} alt={product?.name} className="w-1/2" />
+        <div className="flex flex-col gap-2 w-full">
           <h2>{product?.name}</h2>
-          <p>{product?.price}</p>
+          <p>R$ {product?.price}</p>
+          <p>{product?.description}</p>
           <PrimaryButton disabled={!session} handleClick={handleClick}>
             Comprar
           </PrimaryButton>
         </div>
       </div>
-      <p>{product?.description}</p>
     </div>
   );
 }

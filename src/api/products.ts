@@ -57,11 +57,7 @@ export const updateProduct = async (
   }
 };
 
-export const deleteProduct = async (
-  id: string,
-  config: Config,
-  callback: () => void
-) => {
+export const deleteProduct = async (id: string, config: Config) => {
   try {
     await axios.delete(`http://localhost:3333/api/products/${id}`, {
       data: { id },
@@ -70,6 +66,4 @@ export const deleteProduct = async (
   } catch (err) {
     console.error(err);
   }
-
-  callback();
 };

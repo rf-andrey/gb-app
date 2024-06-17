@@ -22,11 +22,15 @@ export default async function EditProduct({ params: { id } }: Props) {
     const rawFormData = Object.fromEntries(formData);
 
     await updateProduct(id, rawFormData, config);
+
+    redirect("/admin/produtos");
   };
 
   const handleDelete = async () => {
     "use server";
-    await deleteProduct(id, config, () => redirect("/admin/produtos"));
+    await deleteProduct(id, config);
+
+    redirect("/admin/produtos");
   };
 
   return (

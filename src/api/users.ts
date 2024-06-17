@@ -48,11 +48,7 @@ export const updateUser = async (
   }
 };
 
-export const deleteUser = async (
-  id: string,
-  config: Config,
-  callback: () => void
-) => {
+export const deleteUser = async (id: string, config: Config) => {
   try {
     await axios.delete(`http://localhost:3333/api/users/${id}`, {
       data: { id },
@@ -61,6 +57,4 @@ export const deleteUser = async (
   } catch (err) {
     console.error(err);
   }
-
-  callback();
 };

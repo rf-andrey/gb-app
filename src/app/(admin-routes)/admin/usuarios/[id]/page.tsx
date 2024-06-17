@@ -22,11 +22,15 @@ export default async function EditUser({ params: { id } }: Props) {
     const rawFormData = Object.fromEntries(formData);
 
     await updateUser(id, rawFormData, config);
+
+    redirect("/admin/usuarios");
   };
 
   const handleDelete = async () => {
     "use server";
-    await deleteUser(id, config, () => redirect("/admin/usuarios"));
+    await deleteUser(id, config);
+
+    redirect("/admin/usuarios");
   };
 
   return (

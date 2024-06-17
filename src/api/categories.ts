@@ -57,11 +57,7 @@ export const updateCategory = async (
   }
 };
 
-export const deleteCategory = async (
-  id: string,
-  config: Config,
-  callback: () => void
-) => {
+export const deleteCategory = async (id: string, config: Config) => {
   try {
     await axios.delete(`http://localhost:3333/api/categories/${id}`, {
       data: { id },
@@ -70,6 +66,4 @@ export const deleteCategory = async (
   } catch (err) {
     console.error(err);
   }
-
-  callback();
 };
