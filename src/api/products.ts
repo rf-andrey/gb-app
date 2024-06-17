@@ -43,7 +43,7 @@ export const createProduct = async (
 
 export const updateProduct = async (
   id: string,
-  formData: { [k: string]: FormDataEntryValue },
+  formData: { [k: string]: FormDataEntryValue } | Product,
   config: Config
 ) => {
   try {

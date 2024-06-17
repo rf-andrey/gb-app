@@ -1,5 +1,19 @@
+"use client";
+
 import React, { ReactNode } from "react";
 
-export const Button = ({ children }: { children: ReactNode }) => (
-  <button className="btn btn-primary">{children}</button>
+interface Props {
+  children: ReactNode;
+  disabled: boolean;
+  handleClick: () => void;
+}
+
+export const PrimaryButton = ({ children, handleClick, disabled }: Props) => (
+  <button
+    disabled={disabled}
+    onClick={async () => handleClick()}
+    className="btn btn-primary"
+  >
+    {children}
+  </button>
 );

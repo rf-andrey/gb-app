@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { Order, OrderDisplay } from "@/types/api/orders";
+import { Order, OrderCore, OrderDisplay } from "@/types/api/orders";
 import { Config } from "@/types/api/shared";
 
 export const getOrders = async (config: Config) => {
@@ -24,9 +24,11 @@ export const getOrderById = async (id: string, config: Config) => {
 };
 
 export const createOrder = async (
-  formData: {
-    [k: string]: FormDataEntryValue;
-  },
+  formData:
+    | {
+        [k: string]: FormDataEntryValue;
+      }
+    | OrderCore,
   config: Config
 ) => {
   try {

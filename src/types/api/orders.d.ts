@@ -1,9 +1,12 @@
-export interface Order {
-  id: number;
+export interface OrderCore {
   orderNumber: number;
-  orderDate: string;
-  totalAmount: string;
+  totalAmount: number;
   status: boolean;
+}
+
+export interface Order extends OrderCore {
+  id: number;
+  orderDate: string;
 }
 
 export interface OrderDisplay extends Order {
